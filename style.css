@@ -1,0 +1,301 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensure body doesn't extend beyond viewport */
+    overflow-x: hidden; /* Ensure no horizontal scroll on body */
+    background: linear-gradient(90deg, #ff9933, #FFFFFF, #138808  );
+    background-size: 300% 100%;
+    animation: tricolor-bg 10s linear infinite; /* Tricolor background animation */
+    
+}
+/* Navbar Styling */
+.nav {
+    background-color:#EB5B00;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    border: 2px solid #a07f4a;
+     
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Wrap items on smaller screens */
+}
+ 
+.logo {
+    flex-shrink: 0; /* Ensure logo stays on the left */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Ensure links wrap on small screens */
+    transition: all 0.5s ease-in-out;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #06038d ;
+    font-weight: 700;
+    font-size:1rem ;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative; /* To position the hover effect */
+    overflow: hidden;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s linear; /* 6-second animation */
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+}
+.rotating-svg  {
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate { 
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Small Screen Menu */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        display: none; /* Hide links by default */
+        background-color: #EB5B00;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px 20px;
+        border-radius: 10px;
+        z-index: 1000;
+        text-align: center;
+    }
+    .image{
+        transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    }
+    .image:hover {
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+        transform: scale(1.03); /* Slightly enlarge */
+        border-color: #8c6e3c; /* Change the border color for emphasis */
+    }
+    
+  
+}
+
+/* By default, show the menu icon on smaller screens (like mobile/tablet) */
+.menu-icon {
+    display: block; /* Show the menu icon by default */
+    border: 2px solid #a07f4a;
+    
+    
+
+}
+
+/* On large screens (like laptops), hide the menu icon */
+@media (min-width: 1024px) {
+    .menu-icon {
+        display: none; /* Hide the menu icon on large screens */
+    }
+
+    /* Ensure the nav links are always visible on large screens */
+    .nav-links {
+        display: flex; /* Display nav links inline */
+    }
+}
+
+/* On small screens (like mobile/tablet), hide nav links by default */
+@media (max-width: 1023px) {
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column; /* Stack links vertically on small screens */
+         
+        .image {
+            pointer-events: none; /* Disable pointer events on large screens */
+        }
+       
+    }
+
+    /* Show nav links when the menu icon is active */
+    .nav-links.active {
+        display: flex; /* Show the nav links when active */
+    }
+}
+
+
+
+    .nav-links.active {
+        display: flex; /* Show links when toggled */
+    }
+
+    .nav-links li {
+        margin-bottom: 10px;
+    }
+
+
+
+/* Keyframes for Tricolor Background Animation */
+@keyframes tricolor-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin: 20px 0;
+    color: #06038d;
+}
+
+/* Media Section */
+.media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    flex-wrap: wrap; /* Wrap media items on smaller screens */
+}
+
+.image,
+.audio {
+    border: 2px solid #a07f4a;
+    border-radius: 10px;
+    max-width: 100%; /* Ensure media doesn't overflow */
+}
+
+
+.audio{
+    margin-top: 55px;
+    border-radius: 30px;
+    
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+/* Section Styling */
+.section {
+    padding: 20px;
+    margin: 10px auto; /* Center sections */
+    background-color: #FFFAED;
+    border: 1px solid #a07f4a;
+    color:#a07f4a;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Restrict maximum width */
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1rem;
+    font-weight: 500;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.section:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+    transform: scale(1.03); /* Slightly enlarge */
+    border-color: #8c6e3c; /* Change the border color for emphasis */
+}
+
+
+.static-svg {
+    
+    animation: none; /* Explicitly stop any inherited animation */
+    
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    color: #a07f4a;
+    text-align: center;
+    font-family: 'Figtree', sans-serif;
+    font-weight: 1000; /* Bold weight for headings */
+}
+
+.section ul,
+.section p {
+    margin-left: 15px;
+    
+}
+ul {
+    list-style: disc;       /* Ensures bullets are displayed */
+    margin: 10px 0 10px 20px; /* Adds space around the list */
+    padding: 0;             /* Prevents unwanted padding */
+}
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: #a07f4a;;
+    margin-top: auto;
+    border-radius: 50px;
+    border: 2px solid #a07f4a;
+    font-family: 'Figtree', sans-serif; /* Apply Figtree font */
+    font-size: 1rem;
+    font-weight: 700;
+
+
+
+}
+.underline{
+    text-decoration: underline;
+  }
+
+            
+      
+        .instagram-logo a {
+            font-size: 50px; /* Size of the Instagram icon */
+            color: #e1306c; /* Default Instagram color */
+            text-decoration: none; /* No underline */
+            transition: color 0.5s ease-in-out; /* Smooth color transition */
+        }
+        
+        .instagram-logo a:hover {
+            color: #e1306c; 
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808); /* Tricolor gradient */
+            -webkit-background-clip: text; /* Clip the gradient to the text */
+            -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+        }
+  #lion{
+    background: linear-gradient(to bottom, skyblue 0%, green 100%);
+
+    
+}
+
+
